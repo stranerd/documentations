@@ -11,6 +11,11 @@ export interface UserEntity {
 	}
 	account: {
 		score: number
+		rankings: {
+			daily: number
+			weekly: number
+			monthly: number
+		}
 		coins: {
 			bronze: number
 			gold: number
