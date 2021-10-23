@@ -8,6 +8,6 @@ export type BadgesRoutes = [
 		middlewares: ['isAuthenticated'],
 		inputs: {},
 		validations: {},
-		response: BadgeEntity
+		response: BadgeEntity | null
 	}
 ]
