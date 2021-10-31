@@ -1,5 +1,5 @@
 import { ReportEntity } from '../../entities/reports/reports'
-import { QueryResults } from '../../../commons'
+import { QueryParams, QueryResults } from '../../../commons'
 
 export type ReportsRoutes = [
 	{
@@ -7,7 +7,7 @@ export type ReportsRoutes = [
 		description: 'Route to get list of reports'
 		method: 'GET',
 		middlewares: ['isAdmin'],
-		inputs: {},
+		inputs: QueryParams,
 		validations: {},
 		response: QueryResults<ReportEntity>
 	},
