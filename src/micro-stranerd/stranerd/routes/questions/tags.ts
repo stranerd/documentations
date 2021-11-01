@@ -13,7 +13,7 @@ export type TagsRoutes = [
 	},
 	{
 		route: '/questions/tags/:id',
-		description: 'Route to get an tag'
+		description: 'Route to get a tag'
 		method: 'GET',
 		middlewares: [],
 		inputs: {},

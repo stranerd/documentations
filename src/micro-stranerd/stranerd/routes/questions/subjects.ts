@@ -13,7 +13,7 @@ export type SubjectsRoutes = [
 	},
 	{
 		route: '/questions/subjects/:id',
-		description: 'Route to get an subject'
+		description: 'Route to get a subject'
 		method: 'GET',
 		middlewares: [],
 		inputs: {},
@@ -22,9 +22,9 @@ export type SubjectsRoutes = [
 	},
 	{
 		route: '/questions/subjects/',
-		description: 'Route to create an subject'
+		description: 'Route to create a subject'
 		method: 'POST',
-		middlewares: ['isAdmin'],
+		middlewares: ['isStranerdAdmin'],
 		inputs: {
 			name: string
 		},
@@ -35,9 +35,9 @@ export type SubjectsRoutes = [
 	},
 	{
 		route: '/questions/subjects/:id',
-		description: 'Route to delete an subject'
+		description: 'Route to delete a subject'
 		method: 'DELETE',
-		middlewares: ['isAuthenticated'],
+		middlewares: ['isStranerdAdmin'],
 		inputs: {},
 		validations: {},
 		response: boolean

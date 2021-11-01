@@ -163,7 +163,7 @@ export type UserRoutes = [
 		route: '/user/roles',
 		description: 'Route to update user roles'
 		method: 'POST',
-		middlewares: ['isAuthenticated', 'isAnAdminInTheSpecifiedRoute'],
+		middlewares: ['isAuthenticated', 'isAdminInSpecifiedApp'],
 		inputs: {
 			userId: string,
 			app: string,

@@ -6,7 +6,7 @@ export type ReportsRoutes = [
 		route: '/reports/reports',
 		description: 'Route to get list of reports'
 		method: 'GET',
-		middlewares: ['isAdmin'],
+		middlewares: ['isStranerdAdmin'],
 		inputs: QueryParams,
 		validations: {},
 		response: QueryResults<ReportEntity>
@@ -15,7 +15,7 @@ export type ReportsRoutes = [
 		route: '/reports/reports/:id',
 		description: 'Route to get a report'
 		method: 'GET',
-		middlewares: ['isAdmin'],
+		middlewares: ['isStranerdAdmin'],
 		inputs: {},
 		validations: {},
 		response: ReportEntity | null
@@ -24,7 +24,7 @@ export type ReportsRoutes = [
 		route: '/reports/reports/:id',
 		description: 'Route to delete a report'
 		method: 'DELETE',
-		middlewares: ['isAdmin'],
+		middlewares: ['isStranerdAdmin'],
 		inputs: {},
 		validations: {},
 		response: boolean
@@ -33,7 +33,7 @@ export type ReportsRoutes = [
 		route: '/reports/reports',
 		description: 'Route to create a report'
 		method: 'POST',
-		middlewares: ['isAdmin'],
+		middlewares: ['isStranerdAdmin'],
 		inputs: {
 			type: string, message: string, reportedId: string
 		},

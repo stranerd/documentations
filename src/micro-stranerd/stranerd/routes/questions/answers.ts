@@ -44,7 +44,7 @@ export type AnswersRoutes = [
 		route: '/questions/answers/:id',
 		description: 'Route to update an answer'
 		method: 'PUT',
-		middlewares: ['isAuthenticated'],
+		middlewares: ['isAuthenticated', 'isOwner'],
 		inputs: {
 			title: string
 			body: string
@@ -63,7 +63,7 @@ export type AnswersRoutes = [
 		route: '/questions/answers/:id',
 		description: 'Route to delete an answer'
 		method: 'DELETE',
-		middlewares: ['isAuthenticated'],
+		middlewares: ['isAuthenticated', 'isOwner'],
 		inputs: {},
 		validations: {},
 		response: boolean

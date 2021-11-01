@@ -1,6 +1,5 @@
 import { QueryParams, QueryResults } from '../../../commons'
 import { SessionEntity } from '../../entities/sessions/sessions'
-import { MediaOutput } from '../../../utils/entities'
 
 export type SessionMetasRoutes = [
 	{
@@ -25,15 +24,16 @@ export type SessionMetasRoutes = [
 		route: '/sessions/sessions',
 		description: 'Route to create a session'
 		method: 'POST',
-		middlewares: ['isAuthenticated'],
+		middlewares: ['isAuthenticated', 'specifiedTutorIdIsAStranerdTutor'],
 		inputs: {
-			to: string, sessionId: string | null, media: MediaOutput | null, content: string | null
+			message: string, tutorId: string, duration: number, isScheduled: boolean, scheduledAt: number | null
 		},
 		validations: {
-			to: ['is string', 'the id of the user you are sending the message to'],
-			sessionId: ['is string or null', 'the id of the session that you are currently in with the user you are sending the message to'],
-			content: ['is string or null', 'the body of the session, leave as null if the session is a file'],
-			media: ['is media file or null', 'the file send in the session, leave null if the session is just text']
+			message: ['is string', 'a chat message to send to the tutor to identify what the student needs help with'],
+			tutorId: ['is string', 'the id of the tutor the student needs a session with'],
+			duration: ['is number', 'the length of the session in minutes', 'must be in the supported list from the server - 15, 30, 60, 120, 180'],
+			isScheduled: ['is boolean', 'true if session starts later, false if session starts immediately tutor accepts'],
+			scheduledAt: ['is number if isScheduled is true, is null if false', 'the unix timestamp of the time the student wants the session to start if the session is scheduled']
 		},
 		response: SessionEntity
 	},

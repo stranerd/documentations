@@ -46,7 +46,7 @@ export type QuestionsRoutes = [
 		route: '/questions/questions/:id',
 		description: 'Route to update a question'
 		method: 'PUT',
-		middlewares: ['isAuthenticated'],
+		middlewares: ['isAuthenticated', 'isOwner'],
 		inputs: {
 			body: string
 			subjectId: string
@@ -65,7 +65,7 @@ export type QuestionsRoutes = [
 		route: '/questions/questions/:id',
 		description: 'Route to delete a question'
 		method: 'DELETE',
-		middlewares: ['isAuthenticated'],
+		middlewares: ['isAuthenticated', 'isOwner'],
 		inputs: {},
 		validations: {},
 		response: boolean
