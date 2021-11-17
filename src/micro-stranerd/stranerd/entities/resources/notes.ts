@@ -9,9 +9,8 @@ export type NoteEntity = {
 	userId: string
 	userBio: UserBio
 	title: string
+	description: string
 	tags: string[]
-	institutionId: string
-	courseId: string
 	createdAt: number
 	updatedAt: number
 }

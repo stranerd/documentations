@@ -27,9 +27,13 @@ export type InstitutionsRoutes = [
 		middlewares: ['isAuthenticated', 'isStranerdAdmin'],
 		inputs: {
 			name: string
+			isSchool: boolean
+			isGateway: boolean
 		},
 		validations: {
 			name: ['is a string', 'is longer than 2 chars']
+			isSchool: ['is a boolean']
+			isGateway: ['is a boolean']
 		},
 		response: InstitutionEntity
 	},
@@ -40,9 +44,13 @@ export type InstitutionsRoutes = [
 		middlewares: ['isAuthenticated', 'isStranerdAdmin'],
 		inputs: {
 			name: string
+			isSchool: boolean
+			isGateway: boolean
 		},
 		validations: {
-			name: ['is a string', 'is longer than 2 chars'],
+			name: ['is a string', 'is longer than 2 chars']
+			isSchool: ['is a boolean']
+			isGateway: ['is a boolean']
 		},
 		response: InstitutionEntity
 	},

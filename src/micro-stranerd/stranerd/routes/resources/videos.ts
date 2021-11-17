@@ -29,6 +29,7 @@ export type VideosRoutes = [
 		inputs: {
 			title: string
 			description: string
+			tag: string
 			isHosted: boolean
 			media: MediaOutput | null
 			link: string | null
@@ -36,6 +37,7 @@ export type VideosRoutes = [
 		validations: {
 			title: ['is a string', 'is longer than 2 chars'],
 			description: ['is a string', 'is longer than 2 chars'],
+			tags: ['is an array of string', 'tags associated with the video'],
 			isHosted: ['is a boolean', 'true if the video is hosted on our server, false if you just pass in the link'],
 			media: ['is a media if isHosted is true, is null if link is false', 'is a video'],
 			link: ['is a string if isHosted is false, is null if link is true', 'is a string'],
@@ -50,6 +52,7 @@ export type VideosRoutes = [
 		inputs: {
 			title: string
 			description: string
+			tag: string
 			isHosted: boolean
 			media: MediaOutput | null
 			link: string | null
@@ -57,6 +60,7 @@ export type VideosRoutes = [
 		validations: {
 			title: ['is a string', 'is longer than 2 chars'],
 			description: ['is a string', 'is longer than 2 chars'],
+			tags: ['is an array of string', 'tags associated with the video'],
 			isHosted: ['is a boolean', 'true if the video is hosted on our server, false if you just pass in the link'],
 			media: ['is a media if isHosted is true, is null if link is false', 'is a video'],
 			link: ['is a string if isHosted is false, is null if link is true', 'is a string'],

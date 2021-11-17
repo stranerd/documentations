@@ -10,6 +10,7 @@ export type VideoEntity = {
 	userBio: UserBio
 	title: string
 	description: string
+	tags: string[]
 	commentsCount: number
 	createdAt: number
 	updatedAt: number

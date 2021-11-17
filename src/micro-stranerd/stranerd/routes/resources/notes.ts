@@ -28,18 +28,16 @@ export type NotesRoutes = [
 		middlewares: ['isAuthenticated', 'isStranerdTutor'],
 		inputs: {
 			title: string
+			description: string
 			tags: string[]
-			institutionId: string
-			courseId: string
 			isHosted: boolean
 			media: MediaOutput | null
 			link: string | null
 		},
 		validations: {
 			title: ['is a string', 'is longer than 2 chars'],
+			description: ['is a string', 'is longer than 2 chars'],
 			tags: ['is an array of string', 'tags associated with the note'],
-			courseId: ['is a string', 'id of the course associated with the note'],
-			institutionId: ['is a string', 'id of the institution associated with the note'],
 			isHosted: ['is a boolean', 'true if the note is hosted on our server, false if you just pass in the link'],
 			media: ['is a media if isHosted is true, is null if link is false', 'is a note'],
 			link: ['is a string if isHosted is false, is null if link is true', 'is a string'],
@@ -53,18 +51,16 @@ export type NotesRoutes = [
 		middlewares: ['isAuthenticated', 'isStranerdTutor', 'isOwner'],
 		inputs: {
 			title: string
+			description: string
 			tags: string[]
-			institutionId: string
-			courseId: string
 			isHosted: boolean
 			media: MediaOutput | null
 			link: string | null
 		},
 		validations: {
 			title: ['is a string', 'is longer than 2 chars'],
+			description: ['is a string', 'is longer than 2 chars'],
 			tags: ['is an array of string', 'tags associated with the note'],
-			courseId: ['is a string', 'id of the course associated with the note'],
-			institutionId: ['is a string', 'id of the institution associated with the note'],
 			isHosted: ['is a boolean', 'true if the note is hosted on our server, false if you just pass in the link'],
 			media: ['is a media if isHosted is true, is null if link is false', 'is a note'],
 			link: ['is a string if isHosted is false, is null if link is true', 'is a string'],

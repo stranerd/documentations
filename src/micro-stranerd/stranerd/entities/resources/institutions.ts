@@ -3,6 +3,8 @@
 export type InstitutionEntity = {
 	id: string,
 	name: string,
+	isSchool: boolean,
+	isGateway: boolean,
 	createdAt: number,
 	updatedAt: number
 }
