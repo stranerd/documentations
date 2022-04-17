@@ -4,12 +4,17 @@ enum Conditions {
 }
 
 type Where = { field: string, value: any, condition?: Conditions }
+type WhereBlock = { condition: QueryKeys, value: (Where | WhereBlock)[] }
+type WhereClause = Where | WhereBlock
+
+enum QueryKeys { and = 'and', or = 'or' }
 
 export type QueryParams = {
-	where?: Where[]
-	auth?: Where[]
-	whereType?: 'and' | 'or'
-	sort?: { field: string, order?: 1 | -1 }
+	where?: WhereClause[]
+	auth?: WhereClause[]
+	whereType?: QueryKeys
+	authType?: QueryKeys
+	sort?: [{ field: string, desc?: boolean }]
 	limit?: number
 	all?: boolean
 	page?: number
@@ -30,4 +35,13 @@ export type QueryResults<Model> = {
 		count: number
 	},
 	results: Model[]
+}
+
+export interface MediaOutput {
+	name: string
+	type: string
+	size: number
+	path: string
+	timestamp: number
+	link: string | null
 }
