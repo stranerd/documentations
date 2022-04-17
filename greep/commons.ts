@@ -11,9 +11,7 @@ enum QueryKeys { and = 'and', or = 'or' }
 
 export type QueryParams = {
 	where?: WhereClause[]
-	auth?: WhereClause[]
 	whereType?: QueryKeys
-	authType?: QueryKeys
 	sort?: [{ field: string, desc?: boolean }]
 	limit?: number
 	all?: boolean
