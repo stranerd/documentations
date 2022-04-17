@@ -21,31 +21,45 @@ export type UsersRoutes = [
 		response: UserEntity | null
 	},
 	{
-		route: '/users/users/streak',
-		description: 'Route to update auth user\'s streak'
-		method: 'POST',
-		middlewares: ['isAuthenticated'],
-		inputs: {},
-		validations: {},
-		response: {
-			skip: boolean
-			increase: boolean
-			reset: boolean
-			streak: number
-		}
-	},
-	{
-		route: '/users/users/subjects',
-		description: 'Route to update auth user\'s strongest and weaker subjects'
+		route: '/users/users/drivers/add',
+		description: 'Route to add a new driver with the auth user as the manager'
 		method: 'POST',
 		middlewares: ['isAuthenticated'],
 		inputs: {
-			strongestSubject: string
-			weakerSubjects: string[]
+			driverId: string
+			commission: number
 		},
 		validations: {
-			strongestSubject: ['is a string', 'the id of the subject selected as strongest subject'],
-			weakerSubjects: ['is an array of string', 'an array of the ids of subjects selected, the ids have to be unique in the list and none of them must be the id of the strongest subject']
+			driverId: ['is a string', 'the id of the user that you want to set as a driver', 'NB: this user must not be driving for anyone at the time this request is sent'],
+			commission: ['is a number', 'must be between 0 and 1 to match the percentage the manager gets']
+		},
+		response: boolean
+	},
+	{
+		route: '/users/users/drivers/update',
+		description: 'Route to update the commission of one of the auth user\'s drivers'
+		method: 'POST',
+		middlewares: ['isAuthenticated'],
+		inputs: {
+			driverId: string
+			commission: number
+		},
+		validations: {
+			driverId: ['is a string', 'the id of the driver'],
+			commission: ['is a number', 'must be between 0 and 1 to match the percentage the manager gets']
+		},
+		response: boolean
+	},
+	{
+		route: '/users/users/drivers/remove',
+		description: 'Route to remove a driver from the auth user'
+		method: 'POST',
+		middlewares: ['isAuthenticated'],
+		inputs: {
+			driverId: string
+		},
+		validations: {
+			driverId: ['is a string', 'the id of the driver that you want to remove'],
 		},
 		response: boolean
 	}
