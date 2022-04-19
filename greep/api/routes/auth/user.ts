@@ -37,7 +37,7 @@ export type UserRoutes = [
 			middleName: ['is a string', 'is longer than 2 characters'],
 			lastName: ['is a string', 'is longer than 2 characters'],
 			description: ['is a string'],
-			photo: ['is an image or null']
+			photo: ['is an image or null or the original object set as the photo on the user', 'If image is uploaded, it is set as the new image. If null is sent, current image is deleted. If the original object is sent, nothing changes for the photo']
 		},
 		response: AuthUserEntity
 	},
